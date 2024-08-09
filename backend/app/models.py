@@ -1,9 +1,9 @@
-from sqlalchemy import Column, Integer, String, Text
+from sqlalchemy import Column, Integer, String
 from .database import Base
 
-class Question(Base):
-    __tablename__ = "questions"
+class URL(Base):
+    __tablename__ = "urls"
 
     id = Column(Integer, primary_key=True, index=True)
-    question_text = Column(Text, index=True)
-    answer = Column(String, index=True)
+    original_url = Column(String, nullable=False)
+    short_url = Column(String, unique=True, index=True)
